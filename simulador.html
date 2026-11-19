@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de izaje · Grupo pendiente · Sección 20905 · UTP</title>
+<link rel="stylesheet" href="css/estilos.css">
+<script defer src="js/navegacion.js"></script>
+<script defer src="js/formulas.js"></script>
+<script defer src="js/simulador.js"></script>
+</head>
+<body>
+<header class="barra"><div class="contenedor cabecera">
+  <div class="marca"><span class="logo" data-imagen="img/logo-utp.png" data-alt="Logo UTP">UTP</span><div><strong>Mecánica Clásica</strong><small>Sección 20905 · Grupo pendiente</small></div></div>
+  <nav aria-label="Menú principal"><a href="index.html">Presentación</a><a href="simulador.html" aria-current="page">Simulador</a></nav>
+</div></header>
+<main class="contenedor">
+  <div class="encabezado"><p class="etiqueta">Polipasto eléctrico · Un cable</p><h1>Simulador de izaje</h1><p class="introduccion">Modifica los parámetros y observa el recorrido hasta el piso 15.</p></div>
+  <noscript><p class="aviso peligro">Activa JavaScript para usar la simulación y ver los cálculos.</p></noscript>
+  <section class="laboratorio" aria-label="Área de simulación">
+    <div class="panel configuracion">
+      <h2>Parámetros</h2>
+      <label for="masa">Masa de la carga</label><div class="campo"><input id="masa" type="number" value="200" min="0.01" max="1000000" step="any" required><span>kg</span></div>
+      <label for="capacidad">Capacidad nominal hipotética</label><div class="campo"><input id="capacidad" type="number" value="200" min="0.01" max="1000000" step="any" required><span>kg</span></div>
+      <label for="tiempo">Tiempo de ascenso</label><div class="campo"><input id="tiempo" type="number" value="15" min="0.1" max="3600" step="any" required><span>s</span></div>
+      <div class="constantes"><span>Altura <strong>45 m</strong></span><span>Gravedad <strong>9,81 m/s²</strong></span></div>
+      <p class="aviso" id="validacion" role="status"></p>
+      <div class="botones"><button id="subir" type="button" disabled>Iniciar izaje</button><button id="pausar" type="button" disabled>Pausar</button><button id="reiniciar" type="button">Reiniciar</button></div>
+      <div class="falla"><h3>Caída libre hipotética</h3><p>Demostración independiente desde 45 m, partiendo del reposo y sin resistencia del aire. Se activa por separado con cualquier carga válida.</p><button id="caer" type="button" disabled>Simular caída</button></div>
+    </div>
+    <div class="visor">
+      <div class="visor-titulo"><h2>Recorrido de la carga</h2><p id="estado" role="status">En espera</p></div>
+      <div class="escena" aria-hidden="true">
+        <div class="edificio"></div>
+        <div class="trayecto"><div class="viga"></div><div id="cable" class="cable"></div><div id="carga" class="carga">200 kg</div></div>
+        <span class="marca-piso superior">PISO 15 <b>45 m</b></span><span class="marca-piso inferior">SUELO <b>0 m</b></span>
+      </div>
+      <div class="lecturas"><div><span>Altura actual</span><strong id="altura-actual">0 m</strong></div><div><span>Tiempo transcurrido</span><strong id="tiempo-actual">0 s</strong></div></div>
+    </div>
+  </section>
+  <section class="calculos" aria-labelledby="titulo-calculos"><h2 id="titulo-calculos">Fórmulas y resultados</h2>
+    <p>Los cálculos de izaje representan el recorrido completo de 45 m bajo un modelo ideal. En sobrecarga se muestran como referencia teórica y el ascenso se bloquea.</p>
+    <div id="formulas" class="rejilla-formulas"></div>
+    <div id="formulas-caida" class="rejilla-formulas" hidden></div>
+  </section>
+  <aside class="aviso seguridad"><strong>Alcance del modelo educativo.</strong> La comparación con la capacidad configurada es un criterio de la simulación. Por sí sola, carece de valor como certificación de seguridad. El modelo omite la resistencia real del cable y de la estructura, así como la comprobación de frenos, anclajes, conexiones y efectos dinámicos de arranque y frenado.</aside>
+</main>
+<footer class="contenedor pie">Proyecto académico · UTP · Sección 20905</footer>
+</body></html>
